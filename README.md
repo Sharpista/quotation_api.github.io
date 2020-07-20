@@ -1,2 +1,11 @@
-# quotation_api.github.io
+# quotation_api
 Assessment do Bloco de Front-End, da disciplina de Javascript.
+
+## Tecnologias
+
+* Javascript
+
+### Bibliotecas
+
+* Moment.js
+
