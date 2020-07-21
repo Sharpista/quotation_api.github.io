@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/estilo.css" />
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+    />
+    <title>Conversor</title>
+</head>
+
+<body onload="carregarObjeto()">
+<div class="container">
+    <section class="principal">
+        <div class="row">
+            <div class="column-md-2">
+                <label for="qtd">Quantidade : </label>
+            </div>
+            <div class="column-md-2">
+                <input
+                        type="text"
+                        name="quantidade"
+                        id="qtd"
+                        class="form-control"
+                />
+            </div>
+            <div class="column-md-2">
+                <select id="moeda" class="form-control">
+                    <option>Selecione</option>
+                </select>
+            </div>
+            <div class="column-md-2">
+                <label for="data">Data : </label>
+            </div>
+            <div class="column-md-2">
+                <input type="date" name="data" id="data" class="form-control" />
+            </div>
+            <div class="column-md-2">
+                <button
+                        type="button"
+                        class="btn btn-success"
+                        id="botao"
+                        onclick="preencher('tabela')"
+                >
+                    Adicionar
+                </button>
+            </div>
+            <div class="column-md-2">
+                <button
+                        type="button"
+                        class="btn btn-warning"
+                        id="b"
+                        onclick="excluirTudo()"
+                >
+                    Excluir Tudo
+                </button>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="column-md-12">
+                <table class="table table-bordered" id="tabela">
+                    <thead>
+                    <tr class="thead-dark">
+                        <th colspan="8" style="text-align: center;">Histórico</th>
+                    </tr>
+                    <tr>
+                        <th>Quantidade</th>
+                        <th>Moeda</th>
+                        <th>Data da Compra</th>
+                        <th>Valor da Compra</th>
+                        <th>% Hoje</th>
+                        <th>Valor de Hoje</th>
+                        <th>Remover</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <h1>Relatório de Moedas que possuo</h1>
+        <div id="divPrincipal" class="row">
+            <div
+                    style="
+              width: 200px;
+              height: 200px;
+              background-color: darkgray;
+              border-radius: 50px;
+              display: inline;
+              margin-right: 20px;
+              text-align: center;
+              padding-top: 20px;
+            "
+            >
+                <box class="USD" id="kk">
+                    <h5></h5>
+                    <h5></h5>
+                    <h5></h5>
+                </box>
+            </div>
+            <div
+                    style="
+              width: 200px;
+              height: 200px;
+              background-color: darkgray;
+              border-radius: 50px;
+              display: inline;
+              margin-right: 20px;
+              text-align: center;
+              padding-top: 20px;
+            "
+            >
+                <box class="EUR">
+                    <h5></h5>
+                    <h5></h5>
+                    <h5></h5>
+                </box>
+            </div>
+            <div
+                    style="
+              width: 200px;
+              height: 200px;
+              background-color: darkgray;
+              border-radius: 50px;
+              display: inline;
+              margin-right: 20px;
+              text-align: center;
+              padding-top: 20px;
+            "
+            >
+                <box class="CNY">
+                    <h5></h5>
+                    <h5></h5>
+                    <h5></h5>
+                </box>
+            </div>
+            <div
+                    style="
+              width: 200px;
+              height: 200px;
+              background-color: darkgray;
+              border-radius: 50px;
+              display: inline;
+              margin-right: 20px;
+              text-align: center;
+              padding-top: 20px;
+            "
+            >
+                <box class="JPY">
+                    <h5></h5>
+                    <h5></h5>
+                    <h5></h5>
+                </box>
+            </div>
+            <div
+                    style="
+              width: 200px;
+              height: 200px;
+              background-color: darkgray;
+              border-radius: 50px;
+              display: inline;
+              margin-right: 20px;
+              text-align: center;
+              padding-top: 20px;
+            "
+            >
+                <box class="GBP">
+                    <h5></h5>
+                    <h5></h5>
+                    <h5></h5>
+                </box>
+            </div>
+        </div>
+
+        <h2>Carteira</h2>
+        <div class="card" style="width: 18rem;" ;>
+            <div class="card-body" id="carteira"><h5></h5></div>
+        </div>
+    </section>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+></script>
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+
+</body>
+</html>
