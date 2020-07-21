@@ -8,4 +8,5 @@ Assessment do Bloco de Front-End, da disciplina de Javascript.
 ### Bibliotecas
 
 * Moment.js
+* Bootstrap
 
